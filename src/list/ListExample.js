@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 const ListExample = () => {
+    const arrayObj = ["a", "b", "c", "d", "e"]
     const OrderList = () => {
         return (
             <>
@@ -24,11 +25,24 @@ const ListExample = () => {
             </>
         )
     }
+    const OrderedListMap = () => {
+        return(
+            <>
+           <ul>
+           {arrayObj.map((obj)=> (
+            <li key={obj}>{obj}</li>
+           )
+           )}
+           </ul>
+            </>
+        )
+    }
 
     return (
         <>
             <OrderList />
             <UnOrderedList />
+            <OrderedListMap />
         </>
     )
 }
