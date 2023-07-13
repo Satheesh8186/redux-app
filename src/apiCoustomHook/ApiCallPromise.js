@@ -1,7 +1,36 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-const APiCallPromise = () => {
-const[isLoading,setLoading] = useState(false)
-const[dataResponse,setDataResponse] = useState(null)
+const ApiCallPromise = (url) => {
+const[loading,setLoading] = useState(false)
+const[data,setDataResponse] = useState(null)
+const [error,setError] = useState(null)
 
+useEffect(()=>{
+    console.log("called")
+    const fetchApiUsingPromise = () => {
+        setLoading(true)
+        fetch(url)
+        .then(response => {
+            if(!response){
+                throw Error("failed to load")
+            }
+            return response.json()
+        })
+        .then(responseData => {
+            setDataResponse(responseData)
+            setError(null)
+        })
+        .catch(error => {
+            setError(error)
+            console.log(error,"eroor");
+        })
+        .finally(() => {
+            setLoading(false)
+        })
+
+    }
+    fetchApiUsingPromise()
+},[])
+return {data, loading, error};
 }
+export default ApiCallPromise;

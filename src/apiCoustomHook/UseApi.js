@@ -17,7 +17,6 @@ const UserApi = (url) => {
                 SetError(null)
 
             }catch (error){
-                console.log("error recived...",error);
                 SetError(error)
             }
             setLoading(false)

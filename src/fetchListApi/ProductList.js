@@ -1,7 +1,8 @@
 import UserApi from "../apiCoustomHook/UseApi";
+import ApiCallPromise from "../apiCoustomHook/ApiCallPromise";
 const ProductList = () => {
- const{data,loading,error} = UserApi("https://dummyjson.com/products")
- console.log("error",error);
+ const{data,loading,error} =  ApiCallPromise("https://dummyjson.com/products") //UserApi("https://dummyjson.com/products")
+ console.log("error",error,data,loading);
 return (
     <>
     <h1>Api call</h1>
