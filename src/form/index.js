@@ -1,4 +1,4 @@
-import React ,{useState} from "react";
+import React ,{useRef, useState} from "react";
 // const Form = () => {
 //     const[userName,setUserName] = useState("")
 //     const submitButtonClick = (e) => {
@@ -24,6 +24,7 @@ const Form = () => {
       email: '',
       message: ''
     });
+    const inputRef = useRef(null);
   
   const handleChange = (e)=>{
     setFormData({...formData,[e.target.name]: e.target.value})
@@ -32,7 +33,9 @@ const Form = () => {
       e.preventDefault();
       console.log(formData);
     };
-  
+  const highlightinput = () => {
+    inputRef.current.focus();
+  }
     return (
       <form onSubmit={handleSubmit}>
         <div>
@@ -52,6 +55,7 @@ const Form = () => {
           type="email"
           id="email"
           name="email"
+          ref={inputRef}
           value={formData.email}
           onChange={handleChange}
           required
@@ -67,6 +71,7 @@ const Form = () => {
           required
         />
         </div>
+        <button type="button" onClick={ highlightinput}>HightLighht</button>
         <button type="submit">Submit</button>
       </form>
     );
