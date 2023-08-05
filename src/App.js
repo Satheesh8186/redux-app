@@ -7,11 +7,12 @@
 //import Paggination from './pagination';
 // import ParentCom from './inputRef';
 //import MainParent from './contextApi';
-import ContextReal from './contexRealUseCase';
+//import ContextReal from './contexRealUseCase';
+import CounterApp from './reduxExample';
 function App() {
   return (
     <div >
-      <ContextReal />
+      <CounterApp />
     </div>
   );
 }
