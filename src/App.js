@@ -5,11 +5,13 @@
 //import UseMemoHooks from './memos/UseMemoHooks';
 // import Form from "./form";
 //import Paggination from './pagination';
-import ParentCom from './inputRef';
+// import ParentCom from './inputRef';
+//import MainParent from './contextApi';
+import ContextReal from './contexRealUseCase';
 function App() {
   return (
     <div >
-      <ParentCom />
+      <ContextReal />
     </div>
   );
 }
